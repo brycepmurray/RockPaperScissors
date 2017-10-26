@@ -1,36 +1,34 @@
+//codefoo 38695 for Jakes fancy version
 function play(playerChoice) {
     var compChoice = computerChoice()
-    results(compChoice, playerChoice)
+    var res = results(compChoice, playerChoice)
+    endResults(res)
 }
 
-function playerChoice(playerChoice) {
-    document.getElementById('playerChoice').innerText = 'You Chose ' + playerChoice
-    play(playerChoice)
+function playerChoice(pChoice) {
+    document.getElementById('playerChoice').innerText = 'You Chose ' + pChoice
+    play(pChoice)
 }
 
 function computerChoice() {
-    var choices = ['Rock', 'Scissors', 'Paper']
-    var num = Math.floor(Math.random() * 4);
+    var choices = ['Rock', 'Paper', 'Scissors']
+    var num = Math.floor(Math.random() * choices.length);
     return choices[num]
 
 }
 
 function results(compChoice, playerChoice) {
     if (playerChoice == compChoice) {
-        results = 'Tie';
-    } else if (playerChoice === 'Rock' && compChoice === 'Scissors',
-        playerChoice === 'Scissors' && compChoice === 'Paper') {
-        playerChoice === 'Paper' && compChoice === 'Rock',
-            results = 'Win!';
+        return 'Tie';
+    } else if (playerChoice == 'Rock' && compChoice == 'Scissors' ||
+        playerChoice == 'Paper' && compChoice == 'Rock' ||
+        playerChoice == 'Scissors' && compChoice == 'Paper') {
+        return 'Chose Wisely!';
     } else {
-        results = 'Lose'
+        return 'Chose...Poorly'
     }
-    return results;
-
-    play(results)
-
 }
 
-function endResults(results) {
-    document.getElementById('results').innerText = 'You ' + results
+function endResults(str) {
+    document.getElementById('results').innerText = 'You ' + str
 }
