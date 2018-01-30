@@ -11,10 +11,9 @@ function playerChoice(pChoice) {
 }
 
 function computerChoice() {
-    var choices = ['Rock', 'Paper', 'Scissors']
+    var choices = ['Rock', 'Paper', 'Scissors', 'Rock', 'Paper', 'Scissors', 'Rock', 'Paper', 'Scissors']
     var num = Math.floor(Math.random() * choices.length);
     return choices[num]
-
 }
 
 function results(compChoice, playerChoice) {
